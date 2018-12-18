@@ -26,7 +26,6 @@ Page({
     shopCarInfo:{},
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
   },
-
   //事件处理函数
   swiperchange: function(e) {
       //console.log(e.detail.current)
@@ -35,6 +34,9 @@ Page({
     })  
   },
   onLoad: function (e) {
+    wx.setNavigationBarTitle({
+      title: e.name
+    })
     if (e.inviter_id) {
       wx.setStorage({
         key: 'inviter_id_' + e.id,

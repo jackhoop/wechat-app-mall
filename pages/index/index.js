@@ -41,8 +41,9 @@ Page({
     })  
   },
   toDetailsTap:function(e){
+   console.log(e)
     wx.navigateTo({
-      url:"/pages/goods-details/index?id="+e.currentTarget.dataset.id
+      url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id + "&name=" + e.currentTarget.dataset.companyname
     })
   },
   callTel:function(e){

@@ -15,47 +15,50 @@
             </block>  
         </view>  
    </view>
-   <view class="swiper-container" wx:if="{{goodsDetail.basicInfo.videoId}}">
-        <video src="{{videoMp4Src}}" autoplay="true" loop="true" style='width:100%'></video>
-   </view>
    <view class="goods-info">
-        <view class="goods-title">{{goodsDetail.basicInfo.name}}</view>
-        <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 1}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}} 积分奖励</view>
-    <view class="goods-share" wx:if="{{goodsDetail.basicInfo.commissionType == 2}}">分享有赏，好友下单后可得 {{goodsDetail.basicInfo.commission}}元 现金奖励</view>
-    <view class="goods-price" style="padding-left:35rpx;">¥ {{selectSizePrice}}</view>
-        <view class="goods-price" style="color:#999;font-size:24rpx;">购买{{goodsDetail.basicInfo.numberOrders}}次</view>
-        <view class="goods-price" style="color:#999;font-size:24rpx;">共收到 {{goodsDetail.basicInfo.numberGoodReputation}} 次好评</view>
-        <view class="goods-info-fx">
-          <image src='../../images/qd.png' />
-          <button open-type="share">分享</button>
-          <text>分享有赏</text>
-        </view>
    </view>
-   <view wx:if="{{curGoodsKanjia}}" class="row-arrow" bindtap="goKanjia">
-      邀请好友帮忙砍价 ( <text style='color:red'>底价 {{curGoodsKanjia.minPrice}} 元</text> )
-   </view>
-   <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{pingtuanList}}">
-      <view class="label-title" style="border-bottom:1px solid #eee;">{{pingtuanList.length}}人在拼单，可直接参与</view>
-        <view class="goods-text" style="margin-top:15rpx;border-bottom:1px solid #eee;" wx:for="{{pingtuanList}}" wx:key="id">
-          <view style="width:150rpx;float:left;">
-            <image style="width: 150rpx; height: 150rpx;" src="{{item.apiExtUser.avatarUrl}}"></image>
-            <view style="width:150rpx;text-align:center;">{{item.apiExtUser.nick}}</view>
-          </view>
-          <view style="width:500rpx;float:left;margin-left:35rpx;">
-            <view>已有<text style="color:red"> {{item.helpNumber}} </text>人参与</view>
-            <view style="color: #B0B0B0;font-size:24rpx;">截止: {{item.dateEnd}}</view>
-            <button type="warn" size="mini" data-pingtuanopenid="{{item.id}}" bindtap="toPingtuan"> 去拼单 </button>
-          </view>
-        </view>
-  </view>
-   <view wx:if="{{hasMoreSelect}}" class="row-arrow" bindtap="bindGuiGeTap">
-      {{selectSize}}
-   </view>
+
     <view class="goods-des-info">
-        <view class="label-title">商品介绍</view>
-        <view class="goods-text">
-            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-         </view>
+        <view class="weui-panel">
+            <view class="weui-panel__bd">
+             <view class="weui-media-box weui-media-box_small-appmsg">
+                <view class="page__title" style='margin-top: 10rpx;margin-left: 15rpx'>
+                   <i class="icon iconfont icon-shanghu" style="font-size:40rpx;color:#00aae8"></i>测试水站
+                </view>
+                <view class="weui-cell__ft weui-media-box__desc" style='margin-right: 10rpx;'>
+                 <i class="icon iconfont icon-emizhifeiji"></i> 距离我123m
+                </view>
+             </view>
+           
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                 <view class="weui-cells weui-cells_in-small-appmsg">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__bd weui-media-box__desc">
+                                 <i class="icon iconfont icon-dizhi1"></i> 齐耳短发克格勃基材厅
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </view>
+                    </view>
+                 <view class="weui-cells weui-cells_in-small-appmsg">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__bd weui-media-box__desc">
+                                 <i class="icon iconfont icon-shouji1"></i> 12456789098
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </view>
+                    </view>
+                    <view class="weui-cells weui-cells_in-small-appmsg">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__bd weui-media-box__desc">
+                                 <i class="icon iconfont icon-shijian1"></i> 营业时间: 00:00-12:00 12:00-23:59
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </view>
+                    </view>
+                    
+                </view>
+            </view>
+        </view>
     </view>
     <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{reputation}}">
         <view class="label-title" style="border-bottom:1px solid #eee;">大家评价<text style="color:red">（{{reputation.length}}）</text></view>

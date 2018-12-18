@@ -51,14 +51,23 @@
                             <image class="weui-media-box__thumb" style='border-radius: 5px' src="{{item.pic}}_m" />
                         </view>
                         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                            <view class="weui-media-box__title" style='margin-bottom: 20rpx;'>测试水站</view>
-                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>电话：12345678908</view>
-                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>23123浏览</view>
+                            <view class="weui-media-box__title" style='margin-bottom: 20rpx;'>测试水站夺坧坧枯干枯干枯干坧克林霉素一</view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>
+                             <i class="icon iconfont icon-ai26"></i> 12345678908
+                            </view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>
+                              <i class="icon iconfont icon-liulan"></i> 132
+                            </view>
+                        </view>
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                            <i class="icon iconfont icon-dianhua5" style="font-size:90rpx;margin-left:80rpx;color:#00e560"></i>
                         </view>
               </view>
               <view class='nav' hover-class="weui-cell_active">
                 <view class='item'>
-                  <view class="weui-media-box__desc" style='margin-left:20rpx;'>地址：齐耳短发克格勃基材厅</view>
+                  <view class="weui-media-box__desc" style='margin-left:20rpx;'>
+                    <i class="icon iconfont icon-dizhi1"></i>齐耳短发克格勃基材厅
+                  </view>
                 </view>
                 <view class='item'>
                    <view class="weui-media-box__desc" style='margin-right:20rpx;'>23m</view>

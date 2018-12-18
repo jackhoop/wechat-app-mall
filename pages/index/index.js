@@ -31,6 +31,7 @@ Page({
       activeCategoryId: e.currentTarget.id,
       curPage: 1
     });
+    console.log(e.currentTarget.id);
     this.getGoodsList(this.data.activeCategoryId);
   },
   //事件处理函数

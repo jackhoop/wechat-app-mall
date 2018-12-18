@@ -25,6 +25,10 @@ Page({
     canSubmit:false, //  选中规格尺寸时候是否允许加入购物车
     shopCarInfo:{},
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
+    tabs: ["商户介绍", "商品信息"],
+    activeIndex: 0,
+    sliderOffset:0,
+    sliderLeft: 44
   },
   //事件处理函数
   swiperchange: function(e) {
@@ -101,6 +105,94 @@ Page({
     wx.reLaunch({
       url: "/pages/shop-cart/index"
     });
+  },
+  getGoodsList: function (categoryId, append) {
+    if (categoryId == 0) {
+      categoryId = "";
+    }
+    var that = this;
+    wx.showLoading({
+      "mask": true
+    })
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/list',
+      data: {
+        categoryId: categoryId,
+        nameLike: that.data.searchInput,
+        page: this.data.curPage,
+        pageSize: this.data.pageSize
+      },
+      success: function (res) {
+        wx.hideLoading()
+        if (res.data.code == 404 || res.data.code == 700) {
+          let newData = { loadingMoreHidden: false }
+          if (!append) {
+            newData.goods = []
+          }
+          that.setData(newData);
+          return
+        }
+        let goods = [];
+        if (append) {
+          goods = that.data.goods
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          goods.push(res.data.data[i]);
+        }
+        that.setData({
+          loadingMoreHidden: true,
+          goods: goods,
+        });
+      }
+    })
+  },
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+    var i = new Number("0")
+    this.getGoodsList(i);
+  },
+  getGoodsList: function (categoryId, append) {
+    if (categoryId == 0) {
+      categoryId = "";
+    }
+    var that = this;
+    wx.showLoading({
+      "mask": true
+    })
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/list',
+      data: {
+        categoryId: categoryId,
+        nameLike:'',
+        page: 1,
+        pageSize:10
+      },
+      success: function (res) {
+        wx.hideLoading()
+        if (res.data.code == 404 || res.data.code == 700) {
+          let newData = { loadingMoreHidden: false }
+          if (!append) {
+            newData.goods = []
+          }
+          that.setData(newData);
+          return
+        }
+        let goods = [];
+        if (append) {
+          goods = that.data.goods
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          goods.push(res.data.data[i]);
+        }
+        that.setData({
+          loadingMoreHidden: true,
+          goods: goods,
+        });
+      }
+    })
   },
   toAddShopCar: function () {
     this.setData({

@@ -26,7 +26,6 @@ Page({
     shopCarInfo:{},
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
   },
-
   //事件处理函数
   swiperchange: function(e) {
       //console.log(e.detail.current)
@@ -35,6 +34,9 @@ Page({
     })  
   },
   onLoad: function (e) {
+    wx.setNavigationBarTitle({
+      title: e.name
+    })
     if (e.inviter_id) {
       wx.setStorage({
         key: 'inviter_id_' + e.id,
@@ -112,7 +114,21 @@ Page({
       selectSizePrice: this.data.goodsDetail.basicInfo.minPrice
     });
     this.bindGuiGeTap();
-  },  
+  },
+  toAddress:function(e){
+    wx.openLocation({
+      latitude: 23.362490,
+      longitude: 116.715790,
+      scale: 18,
+      name: '华乾大厦',
+      address: '金平区长平路93号'
+    })
+  },
+  callTel:function(e){
+    wx.makePhoneCall({
+      phoneNumber: '18285053934' //仅为示例，并非真实的电话号码
+    })
+  },
   toPingtuan: function (e) {
     let pingtuanopenid = 0
     if (e.currentTarget.dataset.pingtuanopenid) {

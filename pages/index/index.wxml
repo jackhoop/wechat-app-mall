@@ -17,7 +17,13 @@
         </view>  
    </view>
     <view class="type-container">
-      111
+        <scroll-view class="type-navbar" scroll-x="true">
+            <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    {{item.name}}
+                </view>
+            </view>
+        </scroll-view>
     </view>
     <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
     <view class="search-content">
@@ -38,28 +44,39 @@
         </navigator>
       </swiper>
     </view>
-    <view class="page">
-        <view class="weui-panel__bd"  wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
-              <view class="weui-panel">
-                  <view class="weui-panel__bd">
-                      <view  class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                            <image class="weui-media-box__thumb" src="{{item.pic}}_m" />
+   <view class="goods-container">
+        <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-companyName="测试水站夺坧坧枯干枯干枯干坧克林霉素一" data-id="{{item.id}}" hover-class="weui-cell_active">
+             <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" >
+                            <image class="weui-media-box__thumb" style='border-radius: 5px' src="{{item.pic}}_m" />
                         </view>
                         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                            <view class="weui-media-box__title">测试水站</view>
-                            <view class="weui-media-box__desc" style='padding-top:5px;'><i class="icon iconfont icon-dianhua2"></i> 18285056986</view>
+                            <view class="weui-media-box__title" style='margin-bottom: 20rpx;'>测试水站夺坧坧枯干枯干枯干坧克林霉素一</view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>
+                             <i class="icon iconfont icon-shouji1"></i> 12345678908
+                            </view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>
+                              <i class="icon iconfont icon-liulan"></i> 132
+                            </view>
                         </view>
-                        <view class="weui-media-box__hd">
-                          <i class="icon iconfont icon-dianhuahover" style='color:#00e560;font-size:80rpx;'></i>
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                            <i class="icon iconfont icon-dianhua5" catchtap="callTel" style="font-size:90rpx;margin-left:80rpx;color:#00e560"></i>
                         </view>
-                    </view>
-                   </view>
-                    <view class="weui-media-box__bd weui-media-box_appmsg">
-                       <view class="weui-media-box__desc" style='padding-left: 15px;padding-bottom: 5px;'><i class="icon iconfont icon-dizhi"></i> 顶起可有可无基</view>
-                    </view>
               </view>
-        </view>
+              <view class='nav' >
+                <view class='item'>
+                  <view class="weui-media-box__desc" style='margin-left:20rpx;'>
+                    <i class="icon iconfont icon-dizhi1"></i>齐耳短发克格勃基材厅
+                  </view>
+                </view>
+                <view class='item'>
+                   <view class="weui-media-box__desc" style='margin-right:20rpx;'>
+                    <i class="icon iconfont icon-emizhifeiji" style="font-size:20rpx;"></i> 23m
+                   </view>
+                </view>
+              </view>
+             
+         </view>
     </view>
     <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>
 </view>

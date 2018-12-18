@@ -45,6 +45,25 @@ Page({
       url:"/pages/goods-details/index?id="+e.currentTarget.dataset.id
     })
   },
+  callTel:function(e){
+ 
+    wx.showModal({
+      title: '温馨提示',
+      content: '您将要拨打电话:18285053934',
+      confirmText: "确定",
+      cancelText: "取消",
+      success: function (res) {
+        console.log(res);
+        if (res.confirm) {
+          wx.makePhoneCall({
+           phoneNumber: '18285053934' //仅为示例，并非真实的电话号码
+          })
+        } else {
+          console.log('用户点击辅助操作')
+        }
+      }
+    });
+  },
   tapBanner: function(e) {
     if (e.currentTarget.dataset.id != 0) {
       wx.navigateTo({

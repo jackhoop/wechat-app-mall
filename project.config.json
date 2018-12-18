@@ -1,16 +1,17 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": false,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.7",
-	"appid": "wx579329ac297254f8",
-	"projectname": "%E7%AB%A5%E8%A3%85wx579329ac297254f8",
+	"appid": "wx1d4080f705134ce1",
+	"projectname": "%E9%80%81%E6%B0%B4%E4%B9%8B%E5%AE%B6",
 	"scripts": {},
 	"condition": {
 		"search": {

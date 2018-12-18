@@ -44,17 +44,6 @@
         </navigator>
       </swiper>
     </view>
-    <view class="coupons" hidden="{{hasNoCoupons}}">
-        <scroll-view class="coupons-scroll" scroll-x="true">
-            <view class="coupons-item" wx:for-items="{{coupons}}" wx:for-index="idx" wx:key="id"  bindtap="gitCoupon" data-id="{{item.id}}">
-               <view style="font-size: 35rpx"> ￥ {{item.moneyMax}}元 </view>
-               <view> {{item.name}} </view>
-               <view> 满 {{item.moneyHreshold}} 元使用 </view>
-               <view wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} 前有效 </view>
-               <view wx:if="{{item.dateEndType == 1}}"> 领取 {{item.dateEndDays}} 天内有效 </view>
-            </view>
-        </scroll-view>
-    </view>
     <view class="goods-container">
         <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
            <view class="img-box">

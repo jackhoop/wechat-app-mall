@@ -114,7 +114,21 @@ Page({
       selectSizePrice: this.data.goodsDetail.basicInfo.minPrice
     });
     this.bindGuiGeTap();
-  },  
+  },
+  toAddress:function(e){
+    wx.openLocation({
+      latitude: 23.362490,
+      longitude: 116.715790,
+      scale: 18,
+      name: '华乾大厦',
+      address: '金平区长平路93号'
+    })
+  },
+  callTel:function(e){
+    wx.makePhoneCall({
+      phoneNumber: '18285053934' //仅为示例，并非真实的电话号码
+    })
+  },
   toPingtuan: function (e) {
     let pingtuanopenid = 0
     if (e.currentTarget.dataset.pingtuanopenid) {

@@ -29,33 +29,33 @@
                  <i class="icon iconfont icon-emizhifeiji"></i> 距离我123m
                 </view>
              </view>
-           
-                <view class="weui-media-box weui-media-box_small-appmsg">
-                 <view class="weui-cells weui-cells_in-small-appmsg">
+               <view class="weui-cells weui-cells_in-small-appmsg">
                         <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            <view class="weui-cell__bd weui-media-box__desc">
-                                 <i class="icon iconfont icon-dizhi1"></i> 齐耳短发克格勃基材厅
+                            <view class="weui-cell__hd">
                             </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </view>
-                    </view>
-                 <view class="weui-cells weui-cells_in-small-appmsg">
-                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            <view class="weui-cell__bd weui-media-box__desc">
-                                 <i class="icon iconfont icon-shouji1"></i> 12456789098
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </view>
-                    </view>
-                    <view class="weui-cells weui-cells_in-small-appmsg">
-                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                             <view class="weui-cell__bd weui-media-box__desc">
                                  <i class="icon iconfont icon-shijian1"></i> 营业时间: 00:00-12:00 12:00-23:59
                             </view>
                             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                         </view>
+                </view>
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                  <view class="weui-cells weui-cells_in-small-appmsg" bindtap="toAddress">
+                          <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                              <view class="weui-cell__bd weui-media-box__desc">
+                                  <i class="icon iconfont icon-dizhi1"></i> 齐耳短发克格勃基材厅
+                              </view>
+                              <view class="weui-cell__ft weui-cell__ft_in-access"><text decode="{{true}}">&ensp;</text></view>
+                          </view>
                     </view>
-                    
+                    <view class="weui-cells weui-cells_in-small-appmsg" bindtap="callTel">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__bd weui-media-box__desc">
+                                 <i class="icon iconfont icon-shouji1"></i> 12456789098
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"><text decode="{{true}}">&ensp;</text></view>
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>

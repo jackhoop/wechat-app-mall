@@ -44,17 +44,28 @@
         </navigator>
       </swiper>
     </view>
-    <view class="goods-container">
+   <view class="goods-container">
         <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
-           <view class="img-box">
-              <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
-           </view>
-           <view class="goods-title">{{item.name}}</view>
-           <view style='display:flex;'>
-            <view class="goods-price">¥ {{item.minPrice}}</view>
-            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
-           </view>           
-        </view>
+             <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" >
+                            <image class="weui-media-box__thumb" style='border-radius: 5px' src="{{item.pic}}_m" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title" style='margin-bottom: 20rpx;'>测试水站</view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>电话：12345678908</view>
+                            <view class="weui-media-box__desc" style='margin-top: 10rpx;'>23123浏览</view>
+                        </view>
+              </view>
+              <view class='nav' hover-class="weui-cell_active">
+                <view class='item'>
+                  <view class="weui-media-box__desc" style='margin-left:20rpx;'>地址：齐耳短发克格勃基材厅</view>
+                </view>
+                <view class='item'>
+                   <view class="weui-media-box__desc" style='margin-right:20rpx;'>23m</view>
+                </view>
+              </view>
+             
+         </view>
     </view>
     <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>
 </view>

@@ -1,0 +1,14 @@
+.weui-uploader__file-content {
+position:absolute;
+top:1rpx;
+left:120%;
+-webkit-transform:translate(-50%,-50%);
+transform:translate(-50%,-50%);
+color:#fff;
+}
+.weui-uploader__file {
+position: relative;
+float:left;
+margin-right:9px;
+margin-bottom:9px;
+}

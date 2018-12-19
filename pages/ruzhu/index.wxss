@@ -12,3 +12,8 @@ float:left;
 margin-right:9px;
 margin-bottom:9px;
 }
+.weui-uploader__img{
+  display:block;
+  width:200rpx;
+  height:200rpx
+  }

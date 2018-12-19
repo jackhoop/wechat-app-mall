@@ -81,5 +81,14 @@ Page({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
     })
+  },
+  deleteImg: function (e){
+    console.log(e.currentTarget.dataset.index);
+    var index = e.currentTarget.dataset.index;
+    var files = this.data.files;
+    files.splice(index, 1);
+    this.setData({
+      files: files
+    });
   }
 })

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ruzhu/index",
     "pages/index/index",
     "pages/start/start",
     "pages/goods-details/index",
@@ -17,8 +18,8 @@
     "pages/withdraw/index",
     "pages/kanjia/index",
     "pages/authorize/index",
-    "pages/score-excharge/index",
-    "pages/ruzhu/index"
+    "pages/score-excharge/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

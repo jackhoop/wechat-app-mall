@@ -21,4 +21,20 @@ margin-bottom:9px;
   padding-bottom:10px;
 
 }
+.weui-uploader__imgone {
+display:block;
+width:155rpx;
+height:155rpx;
+}
+.weui-uploader__img-box {
+float:left;
+position:relative;
+margin-right:9px;
+margin-bottom:9px;
+width:77px;
+height:77px;
+ /* border:1px solid #d9d9d9;  */
+
+}
+
 

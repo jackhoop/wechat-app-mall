@@ -17,3 +17,8 @@ margin-bottom:9px;
   width:200rpx;
   height:200rpx
   }
+.page__bd {
+  padding-bottom:10px;
+
+}
+

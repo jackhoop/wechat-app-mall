@@ -23,6 +23,8 @@ Page({
     qqmapsdk = new QQMapWX({
       key: '6CXBZ-QNVRU-ITIVQ-4ALSI-WV7QQ-KHFNQ' // 必填
     });
+
+   
   },
 
   /**
@@ -147,6 +149,10 @@ Page({
     wx.chooseLocation({
       success: function (res) {
 
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        });
         // 调用接口
         qqmapsdk.reverseGeocoder({
           location: {
@@ -158,7 +164,9 @@ Page({
             that.setData({
               ad_info: res.result.ad_info,
               address: res.result.address_component.street + res.result.address_component.street_number,
-              pcd: res.result.address_component.province + res.result.address_component.city + res.result.address_component.district
+              pcd: res.result.address_component.province + res.result.address_component.city + res.result.address_component.district,
+              city: res.result.ad_info.province + "-" + res.result.ad_info.city + "-" + res.result.ad_info.city + "-" + res.result.ad_info.district,
+              cityCode: res.result.ad_info.adcode,
             });
           },
           fail: function (res) {
@@ -170,6 +178,8 @@ Page({
         });
       },
     })
-
-  }
+  },
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  },
 })

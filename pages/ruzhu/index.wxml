@@ -1,19 +1,36 @@
 <view class="page">
+   <form bindsubmit="formSubmit" bindreset="formReset">
+        <input name="cityCode" hidden class="所在城市code" value='{{cityCode}}'/>
+        <input name="city" hidden class="省市区" value='{{city}}'/>
+        <input name="licenseImage" hidden class="营业执照图片" value=''/> 
+        <input name="facadeImage" hidden class="门面图片" value=''/>
+        <input name="adImages" hidden class="商家首页图片轮播" value=''/>
+        <input name="lon" hidden class="经度" value='{{latitude}}'/>
+        <input name="lat" hidden class="纬度" value='{{longitude}}'/>
+        <input name="create_by" hidden class="创建人" value=''/>
         <view class="weui-cells weui-cells_after-title">
-         <view class="weui-cell weui-cell_input">
+            <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">手机号</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入手机号"/>
+                    <input name ="contactsTel" class="weui-input" placeholder="请输入手机号"/>
+                </view>
+            </view>
+             <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">联系人</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name ="contacts" class="weui-input" placeholder="请输入联系人"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">门店名称</view>
+                    <view class="weui-label">商户名称</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入店名称"/>
+                    <input name="name" class="weui-input" placeholder="请输入商户名称"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input weui-cell_vcode" bindtap="chooseLocation">
@@ -33,7 +50,7 @@
                     <view class="weui-label">详细地址</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="选择地址" value='{{address}}' />
+                    <input name="address" class="weui-input" value='{{address}}' />
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -41,7 +58,7 @@
                     <view class="weui-label">营业时间</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="营业时间"/>
+                    <input name="businesshours" class="weui-input" placeholder="营业时间"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -85,7 +102,7 @@
                         </view>
                         <view class="weui-uploader__hd">
                            <view class="weui-cell__bd">
-                              <textarea class="weui-textarea" placeholder="请填写商家介绍" style="height: 4.3em" />
+                              <textarea name="content" class="weui-textarea" placeholder="请填写商家介绍" style="height: 4.3em" />
                               <!-- <view class="weui-textarea-counter">0/200</view> -->
                           </view>
                         </view>
@@ -139,7 +156,8 @@
         </view>
         <!-- <view class="weui-cells__tips">底部说明文字底部说明文字</view> -->
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="showTopTips">提交审核</button>
+            <button class="weui-btn" form-type="submit" type="primary">提交审核</button>
         </view>
+    </form>
         <view class="weui-cells__tips"></view>
 </view>

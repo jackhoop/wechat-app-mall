@@ -81,6 +81,7 @@ Page({
   login: function () {
     let that = this;
     let token = wx.getStorageSync('token');
+    console.log(token)
     if (token) {
       wx.request({
         url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/check-token',

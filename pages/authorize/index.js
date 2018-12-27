@@ -102,6 +102,7 @@ Page({
     }
     wx.login({
       success: function (res) {
+        console.log('code;' +res.code);
         wx.request({
           url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/login",
           data: {

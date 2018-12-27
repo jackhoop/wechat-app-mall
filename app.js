@@ -19,6 +19,15 @@ App({
         }
       }
     });
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          console.log('code！' + res.code)
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
     /**
      * 监听网络状态变化
      * 可根据业务需求进行调整
@@ -170,7 +179,7 @@ App({
   globalData:{
     userInfo:null,
     subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
-      serverUrl:"http://192.168.10.125:8080",
+      serverUrl:"http://192.168.0.104:8080",
     version: "4.1.0",
     note:'增加小程序购物单支持',
     appid: "wx36b803b7c835dc44", // 您的小程序的appid

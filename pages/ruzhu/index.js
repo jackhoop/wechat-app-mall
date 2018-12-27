@@ -24,8 +24,21 @@ Page({
     qqmapsdk = new QQMapWX({
       key: '6CXBZ-QNVRU-ITIVQ-4ALSI-WV7QQ-KHFNQ' // 必填
     });
-
    
+    var that = this;
+    var token = wx.getStorageSync('token')
+    wx.request({
+      url: app.globalData.serverUrl + "/wx/business/" + app.globalData.appid + "/checkApply",
+      method: 'POST',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        that.setData({
+          business: res.data.business
+        });
+      }
+    })
   },
 
   /**
@@ -39,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+ 
   },
 
   /**
@@ -266,9 +279,17 @@ Page({
       },
       data: goods,
       success: (res) => {
-        console.log('*********************');
-        console.log(res.data);
-        console.log('*********************');
+        
+        if (res.data=='0'){
+          wx.showToast({
+            title: '成功',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+        }
+       
+       
       }
     })
    

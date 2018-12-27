@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/ruzhu/index",
     "pages/index/index",
+    "pages/ruzhu/index",
     "pages/start/start",
     "pages/goods-details/index",
     "pages/shop-cart/index",
@@ -18,8 +18,8 @@
     "pages/withdraw/index",
     "pages/kanjia/index",
     "pages/authorize/index",
-    "pages/score-excharge/index"
-    
+    "pages/score-excharge/index",
+    "pages/business/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,7 +42,7 @@
         "text": "附近送水"
       },
       {
-        "pagePath": "pages/ruzhu/index",
+        "pagePath": "pages/business/index",
         "iconPath": "images/nav/cart-off.png",
         "selectedIconPath": "images/nav/cart-on.png",
         "text": "商户入住"

@@ -84,7 +84,7 @@ Page({
     console.log(token)
     if (token) {
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/check-token',
+        url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/check-token",
         data: {
           token: token
         },
@@ -103,12 +103,12 @@ Page({
     wx.login({
       success: function (res) {
         wx.request({
-          url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/login',
+          url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/login",
           data: {
             code: res.code
           },
           success: function (res) {
-            if (res.data.code == 10000) {
+            if (res.data.code == "10000") {
               // 去注册
               that.registerUser();
               return;
@@ -123,8 +123,8 @@ Page({
               })
               return;
             }
-            wx.setStorageSync('token', res.data.data.token)
-            wx.setStorageSync('uid', res.data.data.uid)
+
+            wx.setStorageSync('token', res.data.token);
             // 回到原来的地方放
             wx.navigateBack();
           }
@@ -136,11 +136,17 @@ Page({
     let that = this;
     wx.login({
       success: function (res) {
+        console.log("login:");
+        console.log(res);
         let code = res.code; // 微信登录接口返回的 code 参数，下面注册接口需要用到
         wx.getUserInfo({
           success: function (res) {
+            console.log("UserInfo:");
+            console.log(res);
             let iv = res.iv;
             let encryptedData = res.encryptedData;
+            let signature = res.signature;
+            let rawData = res.rawData;
             let referrer = '' // 推荐人
             let referrer_storge = wx.getStorageSync('referrer');
             if (referrer_storge) {
@@ -148,11 +154,11 @@ Page({
             }
             // 下面开始调用注册接口
             wx.request({
-              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/register/complex',
-              data: { code: code, encryptedData: encryptedData, iv: iv, referrer: referrer }, // 设置请求的 参数
+              url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/register",
+              data: { code: code, encryptedData: encryptedData, iv: iv, signature: signature, rawData: rawData}, // 设置请求的 参数
               success: (res) => {
                 wx.hideLoading();
-                that.login();
+                //that.login();
               }
             })
           }

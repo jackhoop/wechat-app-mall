@@ -54,7 +54,7 @@ App({
   //   })
     wx.setStorageSync('mallName', "送水之家");
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/score/send/rule',
+      url: that.globalData.subDomain + '/score/send/rule',
       data: {
         code: 'goodReputation'
       },
@@ -92,7 +92,7 @@ App({
       return
     }
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/user/check-token',
+      url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/check-token",
       data: {
         token: token
       },
@@ -169,9 +169,10 @@ App({
   globalData:{
     userInfo:null,
     subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
+      serverUrl:"http://192.168.10.125:8080",
     version: "4.1.0",
     note:'增加小程序购物单支持',
-    appid: "wxa46b09d413fbcaff", // 您的小程序的appid
+    appid: "wx36b803b7c835dc44", // 您的小程序的appid
     shareProfile: '百款精品商品，总有一款适合您', // 首页转发的时候话术
     isConnected: true, // 网络是否连接
     _path: 'https://api.it120.cc/tz' // 原项目路由配置在页面中，改为配置项

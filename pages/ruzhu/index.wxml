@@ -2,12 +2,10 @@
    <form bindsubmit="formSubmit" bindreset="formReset">
         <input name="cityCode" hidden class="所在城市code" value='{{cityCode}}'/>
         <input name="city" hidden class="省市区" value='{{city}}'/>
-        <input name="licenseImage" hidden class="营业执照图片" value=''/> 
-        <input name="facadeImage" hidden class="门面图片" value=''/>
-        <input name="adImages" hidden class="商家首页图片轮播" value=''/>
+        <input name="licenseImage" hidden class="营业执照图片" value='{{yyimg}}'/> 
+        <input name="facadeImage" hidden class="门面图片" value='{{mmimg}}'/>
         <input name="lon" hidden class="经度" value='{{latitude}}'/>
         <input name="lat" hidden class="纬度" value='{{longitude}}'/>
-        <input name="create_by" hidden class="创建人" value=''/>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
@@ -112,7 +110,7 @@
                                     <view class="weui-uploader__file"  style="position: relative;margin-top: 7px;" bindtap="previewImage" id="{{item}}">
                                         <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
                                        
-                                         <view  data-index="{{index}}" catchtap="deleteImg" style="position: absolute;top: -.7em;right: -.4em;opacity:0.8;">
+                                         <view  data-index="{{index}}" data-imgType="jcImages"  catchtap="deleteImg" style="position: absolute;top: -.7em;right: -.4em;opacity:0.8;">
                                            <i class="icon iconfont icon-shanchu3" style="font-weight:bold;color:red;font-size:25rpx;"></i>
                                          </view>
                                     </view>
@@ -138,7 +136,7 @@
                                     <view class="weui-uploader__file"  style="position: relative;margin-top: 7px;" bindtap="previewImage" id="{{item}}">
                                         <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
                                        
-                                         <view  data-index="{{index}}" catchtap="deleteImg" style="position: absolute;top: -.7em;right: -.4em;opacity:0.8;">
+                                         <view  data-imgType="adImages"  data-index="{{index}}" catchtap="deleteImg" style="position: absolute;top: -.7em;right: -.4em;opacity:0.8;">
                                            <i class="icon iconfont icon-shanchu3" style="font-weight:bold;color:red;font-size:25rpx;"></i>
                                          </view>
                                     </view>

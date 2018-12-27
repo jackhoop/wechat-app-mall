@@ -92,11 +92,12 @@ App({
       return
     }
     wx.request({
-      url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/check-token",
+      url: that.globalData.serverUrl + "/wx/user/" + that.globalData.appid +"/check-token",
       data: {
         token: token
       },
       success: function (res) {
+        console.log("111111")
         if (res.data.code != 0) {
           wx.removeStorageSync('token')
           that.goLoginPageTimeOut()

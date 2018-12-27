@@ -1,4 +1,5 @@
 // pages/ruzhu/index.js
+var app = getApp();
 var QQMapWX = require('../../mapsdk/qqmap-wx-jssdk');
 var qqmapsdk;
 Page({
@@ -75,6 +76,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+  //门面
   mmchooseImage:function(e){
     var that = this;
     wx.chooseImage({
@@ -83,9 +85,19 @@ Page({
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        that.setData({
-          mmimg:res.tempFilePaths
-        });
+        wx.uploadFile({
+          url: app.globalData.serverUrl + "/wx/media/" + app.globalData.appid + "/uploadImg",
+          filePath: res.tempFilePaths[0],
+          name: 'img',
+          formData: {
+            'dataType': 'bus'
+          },
+          success: function (res) {
+            console.log(res)
+            //do something
+          }
+        })
+    
       }
     })
   },
@@ -181,5 +193,15 @@ Page({
   },
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var goods = e.detail.value;
+        // wx.request({
+        //   url: app.globalData.serverUrl + "/wx/user/"+app.globalData.appid +"/check-token",
+        //   data: {
+        //
+        //   },
+        //   success: function (res) {
+        //
+        //   }
+        // })
   },
 })
